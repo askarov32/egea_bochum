@@ -13,4 +13,10 @@ public class DbManager {
     public static void addWorker(Worker worker) {
         workers.add(worker);
     }
+    public static ArrayList<String> food = new ArrayList<>();
+    static {
+        food.add("Manty - 900 tg");
+        food.add("Beshbarmak - 1000 tg");
+    }
+
 }

@@ -23,43 +23,14 @@ public class MainServlet extends HttpServlet {
         out.print("<title>Title</title>");
         out.print("</head>");
         out.print("<body>");
-        out.print("<table class='table table-striped'>");
-        out.print("<thead>");
-        out.print("<tr>");
-        out.print("<th>NAME</th>");
-        out.print("<th>SURNAME</th>");
-        out.print("<th>DEPARTMENT</th>");
-        out.print("<th>SALARY</th>");
-        out.print("</tr>");
-        out.print("</thead>");
-        out.print("<tbody>");
-        for (Worker worker: DbManager.workers) {
-            out.print("<tr>");
-            out.print("<td>" + worker.name + "</td>");
-            out.print("<td>" + worker.surname + "</td>");
-            out.print("<td>" + worker.department + "</td>");
-            out.print("<td>" + worker.salary + "</td>");
-            out.print("</tr>");
-        }
-        out.print("</tbody>");
-        out.print("<br>");
-        out.print("<form action='/add-worker' method ='post'>");
 
-        out.print("<label class ='mb-3'>NAME: </label>");
-        out.print("<input type ='text' name = 'workerName' class='form-control w-50 mb-3'>");
-
-        out.print("<label class ='mb-3'>SURNAME: </label>");
-        out.print("<input type ='text' name ='workerSurname' class='form-control w-50 mb-3'>");
-
-        out.print("<label class ='mb-3'>DEPARTMENT: </label>");
-        out.print("<input type ='text' name = 'workerDepartment' class='form-control w-50 mb-3'> ");
-
-        out.print("<label class ='mb-3'>SALARY: </label>");
-        out.print("<input type ='number' name = 'workerSalary' class='form-control w-50 mb-3'> ");
-
-        out.print("<button>ADD WORKER</button>");
+        out.print("<form action='/create-order' method ='post'>");
+        out.print("NAME: <input type='text' name = 'clientName' class='form-control w-50 mb-3'>");
+        out.print("SURNAME: <input type='text' surname = 'clientSurname' class='form-control w-50 mb-3'>");
+        out.print("FOOD: <input type='text' food = 'clientFood' class='form-control w-50 mb-3'>");
+        out.print("<button>ORDER</button>");
         out.print("</form>");
-        out.print("</table>");
+
         out.print("</body>");
         out.print("</html>");
 
