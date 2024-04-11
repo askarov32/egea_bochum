@@ -1,4 +1,4 @@
-package task1;
+package Tasks;
 
 import java.util.ArrayList;
 
@@ -9,5 +9,8 @@ public class DbManager {
         workers.add(new Worker("Yedil", "Bakenov", "IT", 500000));
         workers.add(new Worker("Somebody", "Someone", "PR", 150000));
         workers.add(new Worker("Lox", "Loxox", "LOX", 600000));
+    }
+    public static void addWorker(Worker worker) {
+        workers.add(worker);
     }
 }
