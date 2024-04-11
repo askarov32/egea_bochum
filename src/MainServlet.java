@@ -26,8 +26,14 @@ public class MainServlet extends HttpServlet {
 
         out.print("<form action='/create-order' method ='post'>");
         out.print("NAME: <input type='text' name = 'clientName' class='form-control w-50 mb-3'>");
-        out.print("SURNAME: <input type='text' surname = 'clientSurname' class='form-control w-50 mb-3'>");
-        out.print("FOOD: <input type='text' food = 'clientFood' class='form-control w-50 mb-3'>");
+        out.print("SURNAME: <input type='text' name = 'clientSurname' class='form-control w-50 mb-3'>");
+        out.print("<label class ='mb-3'>FOOD:</label>");
+        out.print("<select class=\"form-select\" name = 'clientFood' aria-label=\"Default select example\">");
+        out.print("<option selected>Choose the dish</option>");
+        out.print("<option>Manty - 900 KZT</option>");
+        out.print("<option>Beshbarmak - 1000 KZT</option>");
+        out.print("<option>Nauryz Kozhe - 700 KZT</option>");
+        out.print("</select>");
         out.print("<button>ORDER</button>");
         out.print("</form>");
 

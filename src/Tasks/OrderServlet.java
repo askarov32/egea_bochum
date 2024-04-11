@@ -27,6 +27,6 @@ public class OrderServlet extends HttpServlet {
         order.setFood(food);
         resp.setContentType("text/html");
         PrintWriter out = resp.getWriter();
-        out.print("<h1>" + name + " " + surname + " ordered " + food + "</h1>");
+        out.print("<h2>" + name + " " + surname + " ordered " + food + "</h2>");
     }
 }
