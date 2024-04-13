@@ -1,4 +1,4 @@
-package Tasks;
+package tasks;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

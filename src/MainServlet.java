@@ -3,8 +3,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import Tasks.DbManager;
-import Tasks.Worker;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -24,17 +22,17 @@ public class MainServlet extends HttpServlet {
         out.print("</head>");
         out.print("<body>");
 
-        out.print("<form action='/create-order' method ='post'>");
-        out.print("NAME: <input type='text' name = 'clientName' class='form-control w-50 mb-3'>");
-        out.print("SURNAME: <input type='text' name = 'clientSurname' class='form-control w-50 mb-3'>");
-        out.print("<label class ='mb-3'>FOOD:</label>");
-        out.print("<select class=\"form-select\" name = 'clientFood' aria-label=\"Default select example\">");
-        out.print("<option selected>Choose the dish</option>");
-        out.print("<option>Manty - 900 KZT</option>");
-        out.print("<option>Beshbarmak - 1000 KZT</option>");
-        out.print("<option>Nauryz Kozhe - 700 KZT</option>");
+        out.print("<form action='/register' method ='post'>");
+        out.print("NAME: <input type='text' name = 'humanName' class='form-control w-50 mb-3'>");
+        out.print("SURNAME: <input type='text' name = 'humanSurname' class='form-control w-50 mb-3'>");
+        out.print("<label class ='mb-3'>Gender:</label>");
+        out.print("<select class=\"form-select\" name = 'humanGender' aria-label=\"Default select example\">");
+        out.print("<option selected>Choose your gender</option>");
+        out.print("<option>Male</option>");
+        out.print("<option>Female</option>");
         out.print("</select>");
-        out.print("<button>ORDER</button>");
+        out.print("<br>");
+        out.print("<button type=\"btn\" class=\"btn btn-secondary\">SEND</button>\n");
         out.print("</form>");
 
         out.print("</body>");
