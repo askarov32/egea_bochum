@@ -1,4 +1,5 @@
-
+<%@ page import="Models.Task" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -29,10 +30,21 @@
                     </div>
                     <div class="row">
                         <div class="col-12 mt-3">
-                            <label>deadline</label>
+                            <label>deadline date</label>
                         </div>
                         <div class="col-12 mt-3">
-                            <input type='date' name = 'taskDeadline' class='form-control'>
+                            <select class="form-control" name="taskDeadline">
+                                <% ArrayList<Task> tasks = (ArrayList<Task>) request.getAttribute("tasks_add");
+                                    if (tasks != null) {
+                                        for (Task task : tasks) {
+                                %>
+                                <option value="<%=task.getDeadlineDate()%>"><%=task.getDeadlineDate()%></option>
+                                <%
+                                        }
+                                    }
+                                %>
+                            </select>
+
                         </div>
                     </div>
                     <div class="row">

@@ -36,7 +36,7 @@
                     <label>deadline date</label>
                 </div>
                 <div class="col-12 mt-3">
-                    <select class="form-control" name="task_id">
+                    <select class="form-control" name="taskDeadline">
 
                         <% ArrayList<Task> tasks = (ArrayList<Task>) request.getAttribute("taski");
                             if (tasks != null) {

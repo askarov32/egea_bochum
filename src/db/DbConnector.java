@@ -46,7 +46,7 @@ public class DbConnector {
     }
     public static void addTask(Task task){
         try{
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO tasks (name, description, deadline, status)VALUES (?, ?, ?, ?)country, color, city_id) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO tasks (name, description, deadline, status) VALUES (?, ?, ?, ?, ?, ?)");
             statement.setString(1, task.getName());
             statement.setString(2, task.getDescription());
             statement.setString(3, task.getDeadlineDate());

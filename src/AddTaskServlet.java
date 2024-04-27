@@ -13,9 +13,8 @@ import java.io.IOException;
 public class AddTaskServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Object DBConnector;
-        req.setAttribute("tasks", DbConnector.getAllTasks());
-        req.getRequestDispatcher(("/html/add-task.jsp"));
+        req.setAttribute("tasks_add", DbConnector.getAllTasks());
+        req.getRequestDispatcher("/html/add-task.jsp").forward(req, resp);
     }
 
     @Override
@@ -35,3 +34,4 @@ public class AddTaskServlet extends HttpServlet {
         resp.sendRedirect("/main");
     }
 }
+
