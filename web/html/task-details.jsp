@@ -71,7 +71,7 @@
 </form>
 <form action="/task-delete" method="post">
     <input type="hidden" name="taskId" value="<%=task.getId()%>">
-    <button class="btn btn-danger btn-sm"style="margin-left: 390px; width: 60px" >delete</button>
+    <button class="btn btn-danger btn-sm" style="margin-left: 390px; width: 60px">delete</button>
 </form>
 </body>
 </html>
