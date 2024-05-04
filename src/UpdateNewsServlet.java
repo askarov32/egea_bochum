@@ -1,6 +1,7 @@
 import Models.News;
 import db.DbConnector;
 
+import db.DbManager;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ public class UpdateNewsServlet extends HttpServlet {
 
         DbConnector.updateNews(news);
 
-        resp.sendRedirect("/main");
+        resp.sendRedirect("/admin");
 
     }
 }
