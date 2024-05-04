@@ -1,5 +1,6 @@
 package db;
 
+import Models.Event;
 import Models.News;
 
 import java.sql.Connection;
@@ -8,7 +9,8 @@ import java.util.ArrayList;
 
 public class DbManager {
     public static ArrayList<News> news = new ArrayList<>();
-    private static int id = 5;
+    public static ArrayList<Event> events = new ArrayList<>();
+
     private static Connection connection;
 
 
@@ -21,10 +23,12 @@ public class DbManager {
 //
 //    }
 
-    public static News getTask(int id){
+    public static News getNews(int id){
         return news.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
     }
-
+    public static Event getEvent(int id){
+        return events.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
+    }
     public static ArrayList<News> getAllTask(){
         return news;
     }

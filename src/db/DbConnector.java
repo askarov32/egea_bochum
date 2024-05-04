@@ -73,6 +73,7 @@ public class DbConnector {
             PreparedStatement statement = connection.prepareStatement("UPDATE news SET name = ?, content = ? WHERE id = ? ");
             statement.setString(1, news.getName());
             statement.setString(2, news.getContent());
+            statement.setInt(3, news.getId());
 
             statement.executeUpdate();
             statement.close();
@@ -107,7 +108,7 @@ public class DbConnector {
     public static ArrayList<Event> getAllEvents() {
         ArrayList<Event> events = new ArrayList<>();
         try {
-            PreparedStatement statement = connection.prepareStatement("SELECT * FROM events ORDER BY id");
+            PreparedStatement statement = connection.prepareStatement("SELECT * FROM events ORDER BY id ");
             ResultSet resultSet = statement.executeQuery();
 
             while (resultSet.next()) {
@@ -125,7 +126,7 @@ public class DbConnector {
     }
     public static void addEvent(Event event){
         try{
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO events (name, content) VALUES (?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO events (name, content) VALUES (?, ?) ");
             statement.setString(1, event.getName());
             statement.setString(2, event.getContent());
 
@@ -154,6 +155,7 @@ public class DbConnector {
             PreparedStatement statement = connection.prepareStatement("UPDATE events SET name = ?, content = ? WHERE id = ? ");
             statement.setString(1, event.getName());
             statement.setString(2, event.getContent());
+            statement.setInt(3, event.getId());
 
             statement.executeUpdate();
             statement.close();
@@ -163,7 +165,7 @@ public class DbConnector {
         }
     }
 
-    public static Event getEventbyId(int id){
+    public static Event  getEventById(int id){
         Event event = new Event();
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM events WHERE id = ? ");
