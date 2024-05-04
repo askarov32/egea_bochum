@@ -4,11 +4,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Admin's panel</title>
     <%@include file="/links/links.jsp"%>
 </head>
 <body>
-
+<%@include file="navbar.jsp"%>
 <div class="container">
     <%
         ArrayList<News> news = (ArrayList<News>) request.getAttribute("news-admin");
@@ -19,8 +19,11 @@
         <div class="card-body">
             <h1 class="card-title"><%=novost.getName()%></h1>
             <p class="card-text"><%=novost.getContent()%></p>
+            <p><a href="/news-details?id=<%=novost.getId()%>" class="btn btn-sm btn-success">details</a></p>
+
         </div>
     </div>
+    <br>
     <%
             }
         }
@@ -60,20 +63,23 @@
 <div class="container">
     <%
         ArrayList<Event> events = (ArrayList<Event>) request.getAttribute("events-admin");
-        if (news != null) {
+        if (events != null) {
             for (Event event : events) {
     %>
     <div class="card">
         <div class="card-body">
             <h1 class="card-title"><%=event.getName()%></h1>
             <p class="card-text"><%=event.getContent()%></p>
+            <p><a href="/event-details?id=<%=event.getId()%>" class="btn btn-sm btn-success">details</a></p>
 
         </div>
     </div>
+    <br>
     <%
             }
         }
     %>
+
     <form action="/add-event" method="post">
         <div class="row">
             <div class="col-6 text-md-start" >
@@ -95,7 +101,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12 mt-3">
-                        <button type="btn" class="btn btn-secondary">add events</button>
+                        <button type="btn" class="btn btn-secondary">add event</button>
                     </div>
                 </div>
             </div>

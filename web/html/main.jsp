@@ -9,33 +9,7 @@
     <script src="/scripts/main.js"></script>
 </head>
 <body>
-<header class="header">
-    <div class="container">
-        <div class="logo">
-            <a href="/html/main.jsp"><img src="/images/Logo1.png" alt="logo"/></a>
-        </div>
-        <div class="burger" onclick="document.querySelector('.nav').classList.toggle('active'); document.querySelector('.burger').classList.toggle('active'); ">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-        <nav class="nav">
-            <ul class="menu">
-                <li><a href="/html/main.jsp">Home</a></li>
-                <li><a href="/html/news.jsp">News</a> </li>
-                <li><a href="/html/events.jsp">Events</a></li>
-                <li><a href="/html/about.jsp">About us</a></li>
-                <li><a href="/html/contact.jsp">Contact</a></li>
-                <li class="hidden_login"><a href="#">Log in</a></li>
-            </ul>
-        </nav>
-        <div class="login">
-            <button class="button">
-                Log in
-            </button>
-        </div>
-    </div>
-</header>
+<%@include file="navbar.jsp"%>
 
 <section class="main">
     <div class="box"></div>
@@ -165,36 +139,7 @@
 </section>
 <div class="pic">
 </div>
-<footer class="footer">
-    <div class="footer_container">
-        <div class="first_part">
-            <div class="footer_item">
-                <img src="/images/footer_logo.png"/>
-            </div>
-            <div class="footer_item">
-                <div class="footer_item_title">Information</div>
-                <div class="footer_item_item">
-                    <a href="/web/html/main.jsp">Home</a>
-                </div>
-                <div class="footer_item_item"><a href="/html/news.jsp">News</a></div>
-                <div class="footer_item_item"><a href="/html/events.jsp">Events</a></div>
-                <div class="footer_item_item"><a href="/html/about.jsp">About us</a></div>
-            </div>
-            <div class="footer_item">
-                <div class="footer_item_title">Contact</div>
-                <div class="footer_item_item">
-                    <div class="icons">
-                        <img src="/images/inst.png"/>
-                        <imf src="/images/Mail.png"/>
-                    </div>
-                </div>
-                <div class="footer_item_item">8-800-555-35-35</div>
-                <div class="footer_item_item">Laerheidestrasse, 34 44799, Bochum</div>
-            </div>
-        </div>
-        <div class="second_part"></div>
-    </div>
-</footer>
+<%@include file="footer.jsp"%>
 </body>
 </html>
 
