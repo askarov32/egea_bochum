@@ -1,46 +1,19 @@
 <%@ page import="Models.News" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Models.News" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>News - EGEA Bochum</title>
     <link rel="stylesheet" href="/styles/news.css">
-    <%@include file="/links/links.jsp" %>
+    <%@include file="/links/links.jsp"%>
 </head>
-
 <body>
-    <header class="header">
-        <div class="container">
-            <div class="logo">
-                <a href="/html/main.jsp"><img src="/images/Logo1.png" alt="logo"/></a>
-            </div>
-            <div class="burger"
-                onclick="document.querySelector('.nav').classList.toggle('active'); document.querySelector('.burger').classList.toggle('active'); ">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <nav class="nav">
-                <ul class="menu">
-                    <li><a href="/html/main.jsp">Home</a></li>
-                    <li><a href="/html/news.jsp">News</a> </li>
-                    <li><a href="/html/events.jsp">Events</a></li>
-                    <li><a href="/html/about.jsp">About us</a></li>
-                    <li><a href="/html/contact.jsp">Contact</a></li>
-                    <li class="hidden_login"><a href="#">Log in</a></li>
-                </ul>
-            </nav>
-            <div class="login">
-                <button class="button">
-                    Log in
-                </button>
-            </div>
-        </div>
-    </header>
-
+    <%@include file="navbar.jsp"%>
     <section class="fon">
         <div class="box">OUR NEWS FOR TODAY</div>
     </section>
@@ -62,21 +35,39 @@
         <div class="container">
             <%
                 ArrayList<News> news = (ArrayList<News>) request.getAttribute("all-news");
+                System.out.println("News size: " + (news != null ? news.size() : "null"));
                 if (news != null) {
-                    for (News novost : news) {
+                    for (int i = 0; i < news.size(); i++) {
+                        News novost = news.get(i);
             %>
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="card-title"><%=novost.getName()%></h1>
-                    <h2 class="card-text"><%=novost.getContent()%></h2>
+            <div class="container" style="justify-content: center">
+                <div class="card">
+                    <div class="card-body">
+                        <%
+                            if (i % 2 == 0) {
+                        %>
+                        <h1 class="card-title"><%=novost.getName()%></h1>
+                        <h2 class="card-text"><%=novost.getContent()%></h2>
+                        <%
+                        } else {
+                        %>
+                        <h2 class="card-text"><%=novost.getContent()%></h2>
+                        <h1 class="card-title"><%=novost.getName()%></h1>
+                        <%
+                            }
+                        %>
+                    </div>
                 </div>
             </div>
+            <br>
             <%
                     }
                 }
             %>
         </div>
     </section>
+    <%@include file="footer.jsp"%>
+
 
 
 </body>
