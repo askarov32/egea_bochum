@@ -1,13 +1,13 @@
 package db;
 
-import Models.Task;
+import Models.News;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 public class DbManager {
-    public static ArrayList<Task> tasks = new ArrayList<>();
+    public static ArrayList<News> news = new ArrayList<>();
     private static int id = 5;
     private static Connection connection;
 
@@ -21,28 +21,26 @@ public class DbManager {
 //
 //    }
 
-    public static Task getTask(int id){
-        return tasks.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
+    public static News getTask(int id){
+        return news.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
     }
 
-    public static ArrayList<Task> getAllTask(){
-        return tasks;
+    public static ArrayList<News> getAllTask(){
+        return news;
     }
 
     public static void deleteTask(int id){
-        tasks.remove(id);
+        news.remove(id);
     }
-    public static void updateTask(Task task) {
+    public static void updateTask(News news) {
 
         try {
             PreparedStatement statement = connection.prepareStatement("UPDATE tasks SET " +
                     "name = ?, description = ?, status = ?, deadline = ?  WHERE id = ? ");
 
-            statement.setString(1, task.getName());
-            statement.setString(2, task.getDescription());
-            statement.setString(3, task.getStatus());
-            statement.setString(4, task.getDeadlineDate());
-            statement.setInt(5, task.getId());
+            statement.setString(1, news.getName());
+            statement.setString(2, news.getContent());
+            statement.setInt(5, news.getId());
 
             statement.executeUpdate();
             statement.close();
