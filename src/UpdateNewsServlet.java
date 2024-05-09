@@ -18,10 +18,12 @@ public class UpdateNewsServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("newsId"));
         String name = req.getParameter("newsName");
         String content = req.getParameter("newsContent");
+        String date = req.getParameter("newsDate");
         News news = DbConnector.getNewsById(id);
 
         news.setName(name);
         news.setContent(content);
+        news.setDate(date);
 
         DbConnector.updateNews(news);
 

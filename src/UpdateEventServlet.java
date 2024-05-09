@@ -18,10 +18,12 @@ public class UpdateEventServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("eventId"));
         String name = req.getParameter("eventName");
         String content = req.getParameter("eventContent");
+        String date = req.getParameter("eventDate");
         Event event = DbConnector.getEventById(id);
 
         event.setName(name);
         event.setContent(content);
+        event.setDate(date);
 
         DbConnector.updateEvent(event);
         System.out.println(event.toString());
