@@ -8,33 +8,7 @@
         <link rel="stylesheet" href="/styles/about_us.css">
     </head>
     <body>
-        <header class="header">
-            <div class="container">
-                <div class="logo">
-                    <a href="/html/main.jsp"><img src="/images/Logo1.png" alt="logo"/></a>
-                </div>
-                <div class="burger" onclick="document.querySelector('.nav').classList.toggle('active'); document.querySelector('.burger').classList.toggle('active'); ">
-                    <span class="bar"></span>	 
-                    <span class="bar"></span>
-                    <span class="bar"></span> 
-                </div>
-                <nav class="nav">
-                    <ul class="menu">
-                        <li><a href="/html/main.jsp">Home</a></li>
-                        <li><a href="/html/news.jsp">News</a> </li>
-                        <li><a href="/html/events.jsp">Events</a></li>
-                        <li><a href="/html/about.jsp">About us</a></li>
-                        <li><a href="/html/contact.jsp">Contact</a></li>
-                        <li class="hidden_login"><a href="#">Log in</a></li>
-                    </ul>                               
-                </nav>
-                <div class="login">
-                    <button class="button">
-                        Log in
-                    </button>
-                </div>     
-            </div>
-        </header>
+        <%@include file="navbar.jsp"%>
         <section class="main">
             <div class="main_picture">
                 <img src="/images/IMG_2444.JPG"/>
