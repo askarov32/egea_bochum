@@ -4,14 +4,16 @@ public class News {
     int id;
     String name;
     String content;
+    String date;
 
-    public News(int id, String name, String content) {
+    public News() {
+    }
+
+    public News(int id, String name, String content, String date) {
         this.id = id;
         this.name = name;
         this.content = content;
-    }
-
-    public News() {
+        this.date = date;
     }
 
     public int getId() {
@@ -36,5 +38,13 @@ public class News {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
