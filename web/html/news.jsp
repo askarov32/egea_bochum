@@ -48,11 +48,13 @@
                         %>
                         <h1 class="card-title"><%=novost.getName()%></h1>
                         <h2 class="card-text"><%=novost.getContent()%></h2>
+                        <h2 class="card-text"><%=novost.getDate()%></h2>
                         <%
                         } else {
                         %>
                         <h2 class="card-text"><%=novost.getContent()%></h2>
                         <h1 class="card-title"><%=novost.getName()%></h1>
+                        <h1 class="card-title"><%=novost.getDate()%></h1>
                         <%
                             }
                         %>

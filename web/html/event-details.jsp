@@ -41,6 +41,14 @@
             </div>
             <div class="row">
                 <div class="col-12 mt-3">
+                    <label>date</label>
+                </div>
+                <div class="col-12 mt-3">
+                    <input type="date" name="eventDate" value="<%=event.getContent()%>" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-3">
                     <button class="btn btn-sm btn-success">update</button>
                 </div>
             </div>

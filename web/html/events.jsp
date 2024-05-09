@@ -55,6 +55,9 @@
                         <div class="col-md-9">
                             <h2 class="card-text"><%=event.getContent()%></h2>
                         </div>
+                        <div class="col-md-9">
+                            <h2 class="card-text"><%=event.getDate()%></h2>
+                        </div>
                     </div>
                     <%
                     } else {
@@ -65,6 +68,9 @@
                         </div>
                         <div class="col-md-9">
                             <h2 class="card-title"><%=event.getName()%></h2>
+                        </div>
+                        <div class="col-md-9">
+                            <h2 class="card-text"><%=event.getDate()%></h2>
                         </div>
                     </div>
                     <%

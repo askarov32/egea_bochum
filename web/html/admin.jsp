@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@include file="navbar.jsp"%>
-<div class="container">
+<div class="container" style="padding-top: 10px">
     <%
         ArrayList<News> news = (ArrayList<News>) request.getAttribute("news-admin");
         if (news != null) {
@@ -19,6 +19,7 @@
         <div class="card-body">
             <h1 class="card-title"><%=novost.getName()%></h1>
             <p class="card-text"><%=novost.getContent()%></p>
+            <p class="card-text"><%=novost.getDate()%></p>
             <p><a href="/news-details?id=<%=novost.getId()%>" class="btn btn-sm btn-success">details</a></p>
 
         </div>
@@ -50,6 +51,14 @@
                 </div>
                 <div class="row">
                     <div class="col-12 mt-3">
+                        <label>date</label>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <input type='date' name = 'newsDate' class='form-control'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3">
                         <button type="btn" class="btn btn-secondary">add news</button>
                     </div>
                 </div>
@@ -70,6 +79,7 @@
         <div class="card-body">
             <h1 class="card-title"><%=event.getName()%></h1>
             <p class="card-text"><%=event.getContent()%></p>
+            <p class="card-text"><%=event.getDate()%></p>
             <p><a href="/event-details?id=<%=event.getId()%>" class="btn btn-sm btn-success">details</a></p>
 
         </div>
@@ -97,6 +107,14 @@
                     </div>
                     <div class="col-12 mt-3">
                         <input type='text' name = 'eventContent' class='form-control'>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3">
+                        <label>date</label>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <input type='date' name = 'eventDate' class='form-control'>
                     </div>
                 </div>
                 <div class="row">

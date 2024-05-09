@@ -58,11 +58,11 @@
                     <div class="footer_item">
                         <div class="footer_item_title">Information</div>
                         <div class="footer_item_item">
-                            <a href="/html/main.jsp">Home</a>
+                            <a href="/main">Home</a>
                         </div>
-                        <div class="footer_item_item"><a href="/html/news.jsp">News</a></div>
-                        <div class="footer_item_item"><a href="#">Events</a></div>
-                        <div class="footer_item_item"><a href="#">About us</a></div>
+                        <div class="footer_item_item"><a href="/news">News</a></div>
+                        <div class="footer_item_item"><a href="/events">Events</a></div>
+                        <div class="footer_item_item"><a href="/about-us">About us</a></div>
                     </div>
                     <div class="footer_item">
                         <div class="footer_item_title">Contact</div>
