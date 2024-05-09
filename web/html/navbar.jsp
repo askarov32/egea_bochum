@@ -1,10 +1,26 @@
-\
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
 
     <title></title>
 <style>
+
+    @font-face {
+        font-family: 'Inter';
+        src: url("/fonts/Inter-Regular.ttf");
+    }
+    @font-face {
+        font-family: 'Josefin';
+        src: url("/fonts/JosefinSans-Regular.ttf");
+    }
+    @font-face {
+        font-family: 'JosefinLight';
+        src: url("/fonts/JosefinSans-Light.ttf");
+    }
+    @font-face {
+        font-family: 'InterSemibold';
+        src: url("/fonts/Inter-SemiBold.ttf");
+    }
     .header{
         padding: 0px 70px 0 70px;
         background-color: rgb(255, 255, 255);
@@ -152,14 +168,18 @@
                 <li><a href="/events">Events</a></li>
                 <li><a href="/about-us">About us</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li class="hidden_login"><a href="#">Log in</a></li>
+                <li class="hidden_login"><a href="/login">Log in</a></li>
             </ul>
         </nav>
         <div class="login">
-            <button class="button">
-                Log in
-            </button>
+            <button class="button" onclick="redirectToPage()">Log in</button>
         </div>
+
+        <script>
+            function redirectToPage() {
+                window.location.href = '/login';
+            }
+        </script>
     </div>
 </header>
 </body>
