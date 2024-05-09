@@ -21,11 +21,11 @@ public class AddNewsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("newsName");
         String content = req.getParameter("newsContent");
-
+        String date = req.getParameter("newsDate");
         News news = new News();
         news.setName(name);
         news.setContent(content);
-
+        news.setDate(date);
         DbConnector.addNews(news);
         resp.sendRedirect("/admin");
     }

@@ -22,10 +22,12 @@ public class AddEventServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("eventName");
         String content = req.getParameter("eventContent");
+        String date = req.getParameter("eventDate");
 
         Event event = new Event();
         event.setName(name);
         event.setContent(content);
+        event.setDate(date);
 
         DbConnector.addEvent(event);
         resp.sendRedirect("/admin");
