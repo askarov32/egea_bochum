@@ -24,7 +24,7 @@ public class AuthorizationServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("currentUser", user);
             request.getRequestDispatcher("/register").forward(request, response);
-        }else {
+        } else {
             response.sendRedirect("/html/403.jsp");
         }
     }
