@@ -10,11 +10,13 @@ import java.io.IOException;
 
 @WebServlet(value = "/register")
 public class RegisterServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("currentUser");
 
-        if(user!=null){
+        if (user != null) {
+            request.getSession().setAttribute("username", user.getFull_name());
             response.sendRedirect("/html/register.jsp");
         }
     }
+
 }
