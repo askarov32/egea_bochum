@@ -1,21 +1,24 @@
 package Models;
 
+import java.util.ArrayList;
+
 public class Event {
     int id;
     String name;
     String content;
     String date;
+    ArrayList<String> images;
 
     public Event() {
     }
 
-    public Event(int id, String name, String content, String date) {
+    public Event(int id, String name, String content, String date,  ArrayList<String> images) {
         this.id = id;
         this.name = name;
         this.content = content;
         this.date = date;
+        this.images = images;
     }
-
     @Override
     public String toString() {
         return "Event{" +
@@ -23,7 +26,16 @@ public class Event {
                 ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
                 ", date='" + date + '\'' +
+                ", images=" + images +
                 '}';
+    }
+
+    public ArrayList<String> getImages() {
+        return images;
+    }
+
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
     }
 
     public int getId() {

@@ -6,6 +6,7 @@ import Models.User;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class DbConnector {
     private static Connection connection;
@@ -35,6 +36,13 @@ public class DbConnector {
                 news1.setName(resultSet.getString("name"));
                 news1.setContent(resultSet.getString("content"));
                 news1.setDate(resultSet.getString("date"));
+                String imagesString = resultSet.getString("images");
+
+                if(imagesString != null && !imagesString.isEmpty()) {
+                    String[] imageUrls = imagesString.split(",");
+                    ArrayList<String> images = new ArrayList<>(Arrays.asList(imageUrls));
+                    news1.setImages(images);
+                }
                 news.add(news1);
             }
             statement.close();
@@ -46,11 +54,12 @@ public class DbConnector {
     }
     public static void addNews(News news){
         try{
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO news (name, content, date) VALUES (?, ?, ?)");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO news (name, content, date, images) VALUES (?, ?, ?, ?)");
             statement.setString(1, news.getName());
             statement.setString(2, news.getContent());
             statement.setString(3, news.getDate());
-
+            String imagesString = String.join(",", news.getImages());
+            statement.setString(4, imagesString);
             statement.executeUpdate();
             statement.close();
 
@@ -73,11 +82,13 @@ public class DbConnector {
     public static void updateNews(News news) {
 
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE news SET name = ?, content = ?, date = ? WHERE id = ? ");
+            PreparedStatement statement = connection.prepareStatement("UPDATE news SET name = ?, content = ?, date = ?, images = ? WHERE id = ? ");
             statement.setString(1, news.getName());
             statement.setString(2, news.getContent());
             statement.setString(3, news.getDate());
-            statement.setInt(4, news.getId());
+            String imagesString = String.join(",", news.getImages());
+            statement.setString(4, imagesString);
+            statement.setInt(5, news.getId());
 
             statement.executeUpdate();
             statement.close();
@@ -100,7 +111,13 @@ public class DbConnector {
                 news.setName(resultSet.getString("name"));
                 news.setContent(resultSet.getString("content"));
                 news.setDate(resultSet.getString("date"));
+                String imagesString = resultSet.getString("images");
+                if(imagesString != null && !imagesString.isEmpty()) {
+                    String[] imageUrls = imagesString.split(",");
+                    ArrayList<String> images = new ArrayList<>(Arrays.asList(imageUrls));
 
+                    news.setImages(images);
+                }
                 statement.close();
             }
 
@@ -122,6 +139,13 @@ public class DbConnector {
                 event.setName(resultSet.getString("name"));
                 event.setContent(resultSet.getString("content"));
                 event.setDate(resultSet.getString("date"));
+                String imagesString = resultSet.getString("images");
+                if(imagesString != null && !imagesString.isEmpty()) {
+                    String[] imageUrls = imagesString.split(",");
+                    ArrayList<String> images = new ArrayList<>(Arrays.asList(imageUrls));
+
+                    event.setImages(images);
+                }
                 events.add(event);
             }
             statement.close();
@@ -132,10 +156,12 @@ public class DbConnector {
     }
     public static void addEvent(Event event){
         try{
-            PreparedStatement statement = connection.prepareStatement("INSERT INTO events (name, content, date) VALUES (?, ?, ?) ");
+            PreparedStatement statement = connection.prepareStatement("INSERT INTO events (name, content, date, images) VALUES (?, ?, ?, ?) ");
             statement.setString(1, event.getName());
             statement.setString(2, event.getContent());
             statement.setString(3, event.getDate());
+            String imagesString = String.join(",", event.getImages());
+            statement.setString(4, imagesString);
 
             statement.executeUpdate();
             statement.close();
@@ -159,11 +185,13 @@ public class DbConnector {
     public static void updateEvent(Event event) {
 
         try {
-            PreparedStatement statement = connection.prepareStatement("UPDATE events SET name = ?, content = ?, date = ? WHERE id = ? ");
+            PreparedStatement statement = connection.prepareStatement("UPDATE events SET name = ?, content = ?, date = ?, images = ? WHERE id = ? ");
             statement.setString(1, event.getName());
             statement.setString(2, event.getContent());
             statement.setString(3, event.getDate());
-            statement.setInt(4, event.getId());
+            String imagesString = String.join(",", event.getImages());
+            statement.setString(4, imagesString);
+            statement.setInt(5, event.getId());
 
             statement.executeUpdate();
             statement.close();
@@ -186,6 +214,13 @@ public class DbConnector {
                 event.setName(resultSet.getString("name"));
                 event.setContent(resultSet.getString("content"));
                 event.setDate(resultSet.getString("date"));
+                String imagesString = resultSet.getString("images");
+                if(imagesString != null && !imagesString.isEmpty()) {
+                    String[] imageUrls = imagesString.split(",");
+                    ArrayList<String> images = new ArrayList<>(Arrays.asList(imageUrls));
+
+                    event.setImages(images);
+                }
 
                 statement.close();
             }

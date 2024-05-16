@@ -49,6 +49,14 @@
             </div>
             <div class="row">
                 <div class="col-12 mt-3">
+                    <label>images</label>
+                </div>
+                <div class="col-12 mt-3">
+                    <input type="text" name="newsImages" value="<%=news1.getImages()%>" class="form-control" placeholder="Enter image URLs (separated by commas)">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 mt-3">
                     <button class="btn btn-sm btn-success">update</button>
                 </div>
             </div>
@@ -58,6 +66,7 @@
         </div>
     </div>
 </form>
+
 
 <form action="/news-delete" method="post">
     <div class="row justify-content-center">

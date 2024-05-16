@@ -1,4 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="Models.User" %>
+<%@ page import="Models.User" %><%
+    User user = (User) request.getSession().getAttribute("currentUser");
+%>
 <html>
 <head>
 
@@ -168,13 +172,20 @@
                 <li><a href="/events">Events</a></li>
                 <li><a href="/about-us">About us</a></li>
                 <li><a href="/contact">Contact</a></li>
-                <li class="hidden_login"><a href="/login">Log in</a></li>
+                <% if (user != null) { %>
+                <li><a href="/profile"><%=user.getFull_name()%></a></li>
+                <li><a href="/register">Profile</a></li>
+                <li><a href="/logout">Log out</a></li>
+                <%
+                    }
+                %>
             </ul>
         </nav>
+        <% if (user == null) { %>
         <div class="login">
             <button class="button" onclick="redirectToPage()">Log in</button>
         </div>
-
+        <% } %>
         <script>
             function redirectToPage() {
                 window.location.href = '/login';

@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Registration</title>
@@ -14,7 +15,7 @@
                     <label>full name</label>
                 </div>
                 <div class="col-12 mt-3">
-                    <input type="text" name="fullname" required class="form-control">
+                    <input type="text" name="full_name" required class="form-control">
                 </div>
             </div>
             <div class="row">

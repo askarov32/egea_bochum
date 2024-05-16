@@ -52,6 +52,17 @@
                     <button class="btn btn-sm btn-success">update</button>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <label>images</label>
+                </div>
+                <div class="col-12 mt-3">
+                    <!-- Add inline styling for image size -->
+                    <input type="text" name="eventImages" value="<%=event.getImages()%>" class="form-control" style="max-width: 300px;" placeholder="Enter image URLs">
+                    <!-- <input type="text" name="eventImages" value="<%=event.getImages()%>" class="form-control img-input" placeholder="Enter image URLs"> -->
+                </div>
+            </div>
+
             <%
                 }
                 assert event != null;%>

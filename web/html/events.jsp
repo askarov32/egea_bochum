@@ -12,6 +12,12 @@
     <title>News - EGEA Bochum</title>
     <link rel="stylesheet" href="/styles/events.css">
     <%@include file="/links/links.jsp" %>
+    <style>
+        .events {
+            width: 100%;
+            display: flex;
+        }
+    </style>
 </head>
 <body>
 <%@include file="navbar.jsp"%>
@@ -44,39 +50,69 @@
     <div class="container">
         <div class="row">
             <div class="card">
-                <div class="card-body">
-                    <%
-                        if (i % 2 == 0) {
-                    %>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h1 class="card-title"><%=event.getName()%></h1>
-                        </div>
-                        <div class="col-md-9">
-                            <h2 class="card-text"><%=event.getContent()%></h2>
-                        </div>
-                        <div class="col-md-9">
-                            <h2 class="card-text"><%=event.getDate()%></h2>
-                        </div>
+                <%
+                    if (i % 2 == 0) {
+                %>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h1 class="card-title"><%=event.getName()%></h1>
                     </div>
-                    <%
-                    } else {
-                    %>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h1 class="card-text"><%=event.getContent()%></h1>
-                        </div>
-                        <div class="col-md-9">
-                            <h2 class="card-title"><%=event.getName()%></h2>
-                        </div>
-                        <div class="col-md-9">
-                            <h2 class="card-text"><%=event.getDate()%></h2>
-                        </div>
+                    <div class="col-md-9">
+                        <h2 class="card-text" style="font-weight: inherit; font-size: 20px"><%=event.getContent()%></h2>
                     </div>
-                    <%
-                        }
-                    %>
+                    <div class="col-md-9">
+                        <h2 class="card-text"><%=event.getDate()%></h2>
+                    </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-images">
+                            <%
+                                ArrayList<String> images = event.getImages();
+                                if (images != null && !images.isEmpty()) {
+                                    for (String imageUrl : images) {
+                            %>
+                            <img src="<%=imageUrl%>" alt="news image" class="img-fluid">
+                            <%
+                                    }
+                                }
+                            %>
+                        </div>
+                    </div>
+                </div>
+                <%
+                } else {
+                %>
+                <div class="row">
+                    <div class="col-md-9">
+                        <h1 class="card-text" style="font-weight: inherit; font-size: 20px"><%=event.getContent()%></h1>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="card-title"><%=event.getName()%></h2>
+                    </div>
+                    <div class="col-md-3">
+                        <h2 class="card-text"><%=event.getDate()%></h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-images">
+                            <%
+                                ArrayList<String> images = event.getImages();
+                                if (images != null && !images.isEmpty()) {
+                                    for (String imageUrl : images) {
+                            %>
+                            <img src="<%=imageUrl%>" alt="news image" class="img-fluid">
+                            <%
+                                    }
+                                }
+                            %>
+                        </div>
+                    </div>
+                </div>
+                <%
+                    }
+                %>
             </div>
         </div>
     </div>

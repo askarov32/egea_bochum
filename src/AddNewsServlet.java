@@ -8,6 +8,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @WebServlet(value = "/add-news")
 public class AddNewsServlet extends HttpServlet {
@@ -22,10 +24,17 @@ public class AddNewsServlet extends HttpServlet {
         String name = req.getParameter("newsName");
         String content = req.getParameter("newsContent");
         String date = req.getParameter("newsDate");
+        String[] imageUrls = req.getParameterValues("newsImages");
+        ArrayList<String> images = new ArrayList<>();
+        if(imageUrls != null) {
+            images.addAll(Arrays.asList(imageUrls));
+        }
+
         News news = new News();
         news.setName(name);
         news.setContent(content);
         news.setDate(date);
+        news.setImages(images);
         DbConnector.addNews(news);
         resp.sendRedirect("/admin");
     }

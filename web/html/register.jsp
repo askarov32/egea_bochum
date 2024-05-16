@@ -7,7 +7,7 @@
 <body>
 <%@include file="navbar.jsp" %>
 <div class="row justify-content-center">
-    <div class="col-3">
+    <div class="col-6">
         <div class="row">
             <div class="col-12 mt-3">
                 <h1>Welcome to EGEA Bochum, <%= session.getAttribute("username") %>!</h1>
